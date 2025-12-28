@@ -92,6 +92,7 @@ class DefaultEvaluator(Evaluator):
             Report: The complete evaluation report containing all metrics and results.
         """
         # Load the dataset and evaluate each subset
+        # todo 1
         logger.info(f'Start loading benchmark dataset: {self.benchmark_name}')
         dataset_dict = self.benchmark.load_dataset()
         agg_score_dict = defaultdict(list)
@@ -189,9 +190,11 @@ class DefaultEvaluator(Evaluator):
         def on_error(sample: Sample, exc: Exception) -> None:
             tb_str = traceback.format_exc()
             logger.error(f'{sample.model_dump_json(indent=2)} prediction failed: due to {exc}\nTraceback:\n{tb_str}')
+            # todo 如果忽略错误，则直接返回，不抛出异常！！！！！！
             if self.task_config.ignore_errors:
                 logger.warning('Error ignored, continuing with next sample.')
                 return
+            # todo 如果不忽略错误，则直接抛出异常，让任务失败！！！！！！
             raise exc
 
         finished_task_states = run_in_threads_with_progress(
@@ -207,7 +210,7 @@ class DefaultEvaluator(Evaluator):
 
         logger.info(f'Finished getting predictions for subset: {subset}.')
         return cached_task_state_list + finished_task_states
-
+    # todo
     def _predict_sample(self, sample: Sample, model_prediction_dir: str) -> TaskState:
         """
         Helper method to predict a single sample.
@@ -222,6 +225,7 @@ class DefaultEvaluator(Evaluator):
         logger.debug(f'\n{sample.pretty_print()}')
 
         # Run model inference on the current sample
+        # todo 模型推理！！！！！！
         task_state = self.benchmark.run_inference(model=self.model, sample=sample, output_dir=model_prediction_dir)
         return task_state
 

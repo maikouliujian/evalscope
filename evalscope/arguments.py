@@ -75,6 +75,7 @@ def add_argument(parser: argparse.ArgumentParser):
     parser.add_argument('--no-timestamp', action='store_false', help='Do not add timestamp to work_dir to avoid overwriting previous results.')  # noqa: E501
 
     # Debug and runtime mode arguments
+    # todo !!!!!!
     parser.add_argument('--ignore-errors', action='store_true', default=False, help='Ignore errors during evaluation.')
     parser.add_argument('--debug', action='store_true', default=False, help='Debug mode, will print information for debugging.')  # noqa: E501
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility.')

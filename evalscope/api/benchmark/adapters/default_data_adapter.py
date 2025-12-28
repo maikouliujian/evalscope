@@ -401,6 +401,7 @@ class DefaultDataAdapter(DataAdapter):
             ModelOutput: The raw output from the model
         """
         # Execute model inference with the processed input and any tools
+        # todo 调用模型
         model_output = model.generate(input=sample.input, tools=sample.tools)
         return model_output
 
@@ -450,6 +451,7 @@ class DefaultDataAdapter(DataAdapter):
             TaskState: Complete state object containing inference results
         """
         self._on_inference_start(model, sample)
+        # todo 真正推理！！！！！！
         model_output = self._on_inference(model, sample)
         task_state = self._on_inference_end(model, sample, model_output, output_dir, **kwargs)
 

@@ -46,7 +46,7 @@ def record_to_sample_fn(sample_fields: Union[FieldSpec, Callable, None] = None, 
     else:
         return sample_fields
 
-
+# todo 3
 def data_to_samples(data: Iterable[dict], data_to_sample: Callable) -> List[Sample]:
     samples: List[Sample] = []
     for record in tqdm(data, desc='Processing records'):
