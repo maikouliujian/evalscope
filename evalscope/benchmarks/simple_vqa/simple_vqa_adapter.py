@@ -151,6 +151,7 @@ class SimpleVQAAdapter(VisionLanguageAdapter):
         judge_response = self.llm_judge.judge(prompt)
         # parse grading response
         match = re.search(r'(A|B|C)', judge_response)
+        # todo 如果没有匹配上，那么返回C。比如我们thinking标签的结果，无法匹配，就返回了C，导致了错判
         res = match.group(0) if match else 'C'
 
         # Set score based on the match result
