@@ -27,6 +27,7 @@ Given the large number of model parameters, we will use the API provided by the 
 - Input: 100 tokens of text + 1 image of 512x512
 - Output: 128 tokens
 
+
 ```shell
 evalscope perf \
     --model qwen-vl-plus-latest \

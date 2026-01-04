@@ -211,6 +211,7 @@ task_cfg = TaskConfig(
             ],
         }
     },
+    # todo judge_model_args参数配置！！！！！！
     # judge related parameters
     judge_model_args={
         'model_id': 'qwen2.5-72b-instruct',
@@ -218,7 +219,8 @@ task_cfg = TaskConfig(
         'api_key': os.getenv('DASHSCOPE_API_KEY'),
         'generation_config': {
             'temperature': 0.0,
-            'max_tokens': 4096
+            'max_tokens': 4096,
+            'stream': 'false'
         },
         # Determine if the model output is correct based on reference answers and model output
         'score_type': 'pattern',

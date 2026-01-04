@@ -154,6 +154,7 @@ class SimpleVQAAdapter(VisionLanguageAdapter):
         res = match.group(0) if match else 'C'
 
         # Set score based on the match result
+        # todo
         score.value = {
             'is_correct': 1 if res == 'A' else 0,
             'is_incorrect': 1 if res == 'B' else 0,

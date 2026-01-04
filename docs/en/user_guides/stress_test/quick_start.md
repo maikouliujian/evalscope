@@ -72,6 +72,7 @@ results = run_perf_benchmark(task_cfg)
 :::
 ::::
 
+
 **Parameter description**:
 
 - `parallel`: Number of concurrent requests, multiple values can be passed, separated by spaces
