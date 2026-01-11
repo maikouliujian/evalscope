@@ -253,6 +253,7 @@ class ModelScopeAPI(ModelAPI):
 
         ms_messages = message_content_to_string(ms_messages)
         # apply chat template
+        # todo 添加模版！！！！！！
         if self.tokenizer.chat_template is not None:
             template_kwargs = {
                 'add_generation_prompt': True,
