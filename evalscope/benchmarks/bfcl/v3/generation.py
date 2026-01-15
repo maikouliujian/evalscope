@@ -167,6 +167,7 @@ def generate_turn_with_tools(model: Model, row: dict[str, Any]):
             )
 
             # Get model response
+            # todo 获取模型输出！！！！！！
             model_output = model.generate(current_sample.input, tools=current_sample.tools)
 
             # Handle the response based on the model output structure

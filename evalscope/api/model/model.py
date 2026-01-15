@@ -190,11 +190,13 @@ class Model:
         Returns:
            ModelOutput
         """
+        # todo 处理模型输入参数！！！！！！
         processed_input, processed_tools, processed_tool_choice, processed_config = self._preprocess_input(
             input, tools, tool_choice, config
         )
 
         # Call the model's generate method
+        # todo 调用模型，返回结果！！！！！！
         output = self.api.generate(
             input=processed_input,
             tools=processed_tools,
@@ -269,7 +271,8 @@ class Model:
             input = [ChatMessageUser(content=input)]
 
         # handle tools and tool_choice
-        tool_choice = tool_choice if tool_choice is not None else 'auto'
+        # todo tool_choice = tool_choice if tool_choice is not None else 'auto'
+        tool_choice = tool_choice if tool_choice is not None else 'required'
         tools_info = list(tools) if tools is not None else []
 
         if isinstance(tool_choice, ToolFunction):

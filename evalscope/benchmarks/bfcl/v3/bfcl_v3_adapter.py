@@ -128,6 +128,7 @@ class BFCLV3Adapter(AgentAdapter):
 
     def _on_inference(self, model: Model, sample: Sample) -> ModelOutput:
         from .generation import predict
+        # todo
         return predict(model, sample)
 
     def match_score(
