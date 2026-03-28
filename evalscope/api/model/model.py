@@ -365,7 +365,7 @@ def get_model(
         cached = ModelCache.get(model_cache_key)
         if cached is not None:
             return cached
-
+    # todo 打印信息
     logger.info(
         f'Creating model {model} with eval_type={eval_type} '
         f'base_url={base_url}, config={config.model_dump(exclude_none=True)}, model_args={model_args}'

@@ -48,10 +48,10 @@ class TaskConfig(BaseArgument):
     # Dataset-related arguments
     datasets: List[str] = field(default_factory=list)
     """List of dataset names to evaluate the model on."""
-
+    # todo
     dataset_args: Dict = field(default_factory=dict)
     """Additional arguments to pass to datasets during loading."""
-
+    # todo 数据集目录！！！！！！
     dataset_dir: str = DEFAULT_DATASET_CACHE_DIR
     """Directory where datasets are cached locally."""
 

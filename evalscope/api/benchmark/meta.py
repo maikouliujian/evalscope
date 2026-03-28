@@ -15,7 +15,7 @@ class BenchmarkMeta:
 
     name: str
     """ Unique name of the benchmark."""
-
+    # todo 数据集路径
     dataset_id: str
     """ Dataset id on modelscope or path to local dataset."""
 

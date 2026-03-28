@@ -122,11 +122,13 @@ def evaluate_model(task_config: TaskConfig, outputs: OutputsStructure) -> dict:
     # Initialize evaluator
     eval_results = {}
     # Initialize model with lazy loading (model will only be loaded when actually needed)
+    # todo 初始化model！！！！！！
     model = LazyModel(task_config=task_config)
     # Initialize evaluators for each dataset
     evaluators: List[Evaluator] = []
     for dataset_name in task_config.datasets:
         # Create evaluator for each dataset
+        # todo 获取各个数据集的adapter
         benchmark = get_benchmark(dataset_name, task_config)
         evaluator = DefaultEvaluator(
             task_config=task_config,

@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 # Registry for benchmarks, allowing dynamic registration and retrieval of benchmark metadata and data adapters.
 BENCHMARK_REGISTRY: Dict[str, 'BenchmarkMeta'] = {}
 
-
+# todo 自动注册各个数据集adapter
 def register_benchmark(metadata: 'BenchmarkMeta'):
     """Register a benchmark with its metadata."""
 
@@ -43,6 +43,9 @@ def get_benchmark(name: str, config: Optional['TaskConfig'] = None) -> 'DataAdap
 
     # Update metadata with dataset-specific configuration
     if config is not None:
+        # todo 更新数据集adapter metadata信息！！！！！！
+        # todo 例子添加 --dataset-args '{"gpqa_diamond": {"dataset_id": "/workspace/gpqa_diamond"}}' \
+        # todo 就会更新数据集gpqa_diamond中的dataset_id
         metadata._update(config.dataset_args.get(name, {}))
     # Return the data adapter initialized with the benchmark metadata
     data_adapter_cls = metadata.data_adapter

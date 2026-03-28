@@ -72,12 +72,14 @@ class DefaultDataAdapter(DataAdapter):
         Returns:
             Tuple[DatasetDict, Optional[DatasetDict]]: The test dataset and few-shot dataset.
         """
+        # todo 从本地加载数据集
         if os.path.exists(self.dataset_id):
             # Load dataset from local file system path
             with self._temporary_attribute('dataset_hub', HubType.LOCAL):
                 return self.load_from_disk()
         else:
             # Load dataset from remote source (e.g., ModelScope, Huggingface)
+            # todo 从远程加载数据集
             return self.load_from_remote()
 
     def load_from_remote(self):

@@ -16,6 +16,7 @@ logger = get_logger()
 
 @register_benchmark(
     BenchmarkMeta(
+        # todo 注册的key！！！！！！
         name='live_code_bench',
         pretty_name='Live-Code-Bench',
         tags=[Tags.CODING],
@@ -56,6 +57,7 @@ logger = get_logger()
         },
     )
 )
+# todo 将LiveCodeBenchAdapter注册到BenchmarkMeta中
 class LiveCodeBenchAdapter(DefaultDataAdapter):
     """
     Live Code Bench adapter using the new data processing framework.
