@@ -68,7 +68,7 @@ class GenerateConfig(BaseModel):
 
     logit_bias: Optional[Dict[int, float]] = Field(default=None)
     """Map token Ids to an associated bias value from -100 to 100 (e.g. "42=10,43=-10"). OpenAI, Grok, Grok, and vLLM only."""
-
+    # todo --seed 1234【确保结果的可复现性】
     seed: Optional[int] = Field(default=None)
     """Random seed. OpenAI, Google, Mistral, Groq, HuggingFace, and vLLM only."""
 
