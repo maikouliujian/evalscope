@@ -74,6 +74,7 @@ class OpenAICompatibleAPI(ModelAPI):
         tools, tool_choice, config = self.resolve_tools(tools, tool_choice, config)
 
         # get completion params (slice off service from model name)
+        # todo 请求参数
         completion_params = self.completion_params(
             config=config,
             tools=len(tools) > 0,
@@ -90,6 +91,7 @@ class OpenAICompatibleAPI(ModelAPI):
 
         try:
             # generate completion and save response for model call
+            # todo 触发模型请求！！！！！！
             completion = retry_call(
                 self.client.chat.completions.create,
                 retries=config.retries,

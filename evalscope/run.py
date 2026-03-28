@@ -25,6 +25,7 @@ def run_task(task_cfg: Union[str, dict, TaskConfig, List[TaskConfig], Namespace]
         return [run_single_task(cfg, run_time) for cfg in task_cfg]
 
     task_cfg = parse_task_config(task_cfg)
+    # todo
     return run_single_task(task_cfg, run_time)
 
 
@@ -38,6 +39,7 @@ def run_single_task(task_cfg: TaskConfig, run_time: str) -> dict:
     if task_cfg.eval_backend != EvalBackend.NATIVE:
         result = run_non_native_backend(task_cfg, outputs)
     else:
+        # todo 走这里
         logger.info('Running with native backend')
         result = evaluate_model(task_cfg, outputs)
 
@@ -139,11 +141,13 @@ def evaluate_model(task_config: TaskConfig, outputs: OutputsStructure) -> dict:
             task_config.dataset_args[dataset_name] = benchmark.to_dict()
 
     # dump task_cfg to outputs.configs_dir after creating evaluators
+    # todo 将配置文件持久化到磁盘
     task_config.dump_yaml(outputs.configs_dir)
     logger.info(task_config)
 
     # Run evaluation for each evaluator
     for evaluator in evaluators:
+        # todo 执行eval
         res_dict = evaluator.eval()
         eval_results[evaluator.benchmark.name] = res_dict
 
@@ -173,6 +177,7 @@ def evaluate_model(task_config: TaskConfig, outputs: OutputsStructure) -> dict:
 def main():
     from evalscope.arguments import parse_args
     args = parse_args()
+    # todo 运行任务入口！！！！！！
     run_task(args)
 
 

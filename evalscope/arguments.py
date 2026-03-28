@@ -58,6 +58,7 @@ def add_argument(parser: argparse.ArgumentParser):
     parser.add_argument('--dataset-hub', help='The datasets hub.')
 
     # Generation configuration arguments
+    # todo generation-config
     parser.add_argument('--generation-config', type=str, action=ParseStrArgsAction, help='The generation config, should be a string.')  # noqa: E501
 
     # Evaluation-related arguments
@@ -65,6 +66,7 @@ def add_argument(parser: argparse.ArgumentParser):
     parser.add_argument('--eval-backend', type=str, help='The evaluation backend to use.',
                         choices=[EvalBackend.NATIVE, EvalBackend.OPEN_COMPASS, EvalBackend.VLM_EVAL_KIT, EvalBackend.RAG_EVAL])  # noqa: E501
     parser.add_argument('--eval-config', type=str, required=False, help='The eval task config file path for evaluation backend.')  # noqa: E501
+    # todo batch size
     parser.add_argument('--eval-batch-size', type=int, default=1, help='The batch size for evaluation.')
     parser.add_argument('--limit', type=float, default=None, help='Max evaluation samples num for each subset.')
     parser.add_argument('--repeats', type=int, default=1, help='Number of times to repeat the dataset items for k-metrics.')  # noqa: E501
@@ -81,6 +83,7 @@ def add_argument(parser: argparse.ArgumentParser):
     parser.add_argument('--debug', action='store_true', default=False, help='Debug mode, will print information for debugging.')  # noqa: E501
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility.')
     parser.add_argument('--api-key', type=str, default='EMPTY', help='The API key for the remote API model.')
+    # todo api url
     parser.add_argument('--api-url', type=str, default=None, help='The API url for the remote API model.')
     parser.add_argument('--timeout', type=float, default=None, help='The timeout for the remote API model.')
     parser.add_argument('--stream', action='store_true', default=None, help='Stream mode.')  # noqa: E501

@@ -156,7 +156,7 @@ def openai_chat_messages(
 ) -> List[ChatCompletionMessageParam]:
     return [openai_chat_message(message, system_role) for message in messages]
 
-
+# todo openai请求参数，由GenerateConfig进行传递赋值
 def openai_completion_params(model: str, config: GenerateConfig, tools: bool) -> Dict[str, Any]:
     params: Dict[str, Any] = dict(model=model)
     # handle stream option

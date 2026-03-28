@@ -22,7 +22,7 @@ class ResponseSchema(BaseModel):
     """Whether to enable strict schema adherence when generating the output. If set to true, the model will always follow the exact schema defined in the schema field.
     OpenAI and Mistral only."""
 
-
+# todo 模型请求客户端参数
 class GenerateConfig(BaseModel):
     """Model generation options."""
     model_config = {'extra': 'allow'}

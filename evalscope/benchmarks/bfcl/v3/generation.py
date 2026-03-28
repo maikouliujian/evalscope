@@ -165,10 +165,9 @@ def generate_turn_with_tools(model: Model, row: dict[str, Any]):
                 target='',
                 tools=[ToolInfo.model_validate(tool['function']) for tool in tools],
             )
-
             # Get model response
             # todo 获取模型输出！！！！！！
-            model_output = model.generate(current_sample.input, tools=current_sample.tools)
+            model_output = model.generate(current_sample.input, tools=current_sample.tools, tool_choice="required")
 
             # Handle the response based on the model output structure
             message = model_output.message

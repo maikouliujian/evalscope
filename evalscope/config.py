@@ -25,7 +25,7 @@ from evalscope.version import __version__ as evalscope_version
 
 logger = get_logger()
 
-
+# todo 配置类
 @dataclass
 class TaskConfig(BaseArgument):
     # Model-related arguments
@@ -109,7 +109,7 @@ class TaskConfig(BaseArgument):
 
     api_key: Optional[str] = 'EMPTY'
     """API key for authenticating with server-based models."""
-
+    # todo 超时时间！！！！！！
     timeout: Optional[float] = None
     """Request timeout in seconds for server-based models."""
 
@@ -148,6 +148,7 @@ class TaskConfig(BaseArgument):
         self.__init_eval_data_config()
 
         # Set default generation_config and model_args
+        # todo 初始化generation_config
         self.__init_default_generation_config()
         self.__init_default_model_args()
         self.__init_default_sandbox_config()
@@ -217,6 +218,7 @@ class TaskConfig(BaseArgument):
             self.generation_config = GenerateConfig.model_validate(self.generation_config)
 
         # Set eval_batch_size to generation_config.batch_size
+        # todo 赋值batch size
         self.generation_config.batch_size = self.eval_batch_size
 
         # Set default values for generation_config
@@ -225,6 +227,7 @@ class TaskConfig(BaseArgument):
                 logger,
                 'The `timeout` parameter is deprecated and will be removed in v2.0.0. Use `generation_config.timeout` instead.'
             )
+            # todo 赋值timeout
             self.generation_config.timeout = self.timeout
 
         if self.stream is not None:
@@ -269,6 +272,7 @@ class TaskConfig(BaseArgument):
         """Dump the task configuration to a YAML file."""
         task_cfg_file = os.path.join(output_dir, f'task_config_{gen_hash(str(self), bits=6)}.yaml')
         try:
+            # todo 将task配置写入到本地文件中
             logger.info(f'Dump task config to {task_cfg_file}')
             dict_to_yaml(self.to_dict(), task_cfg_file)
         except Exception as e:

@@ -99,6 +99,7 @@ class DefaultEvaluator(Evaluator):
 
         # Process each subset (e.g., test, validation) independently
         subset_list = list(dataset_dict.keys())
+        # todo 2
         logger.info(f'Start evaluating {len(dataset_dict)} subsets of the {self.benchmark_name}: {subset_list}')
         for subset, dataset in tqdm(
             dataset_dict.items(), desc=f'Evaluating [{self.benchmark_name}]', unit='subset', logger=logger
@@ -107,6 +108,7 @@ class DefaultEvaluator(Evaluator):
                 logger.info(f'No samples found in subset: {subset}, skipping.')
                 continue
             logger.info(f'Evaluating subset: {subset}')
+            # todo 执行eval核心！！！！！！
             subset_score = self.evaluate_subset(subset, dataset)
             agg_score_dict[subset] = subset_score
 
@@ -137,6 +139,7 @@ class DefaultEvaluator(Evaluator):
         """
         # Get model predictions for all samples in the subset
         logger.info(f'Getting predictions for subset: {subset}')
+        # todo 推理！！！！！！
         task_states = self.get_answers(subset, dataset)
 
         # Calculate evaluation metrics for each prediction
@@ -179,7 +182,7 @@ class DefaultEvaluator(Evaluator):
             return cached_task_state_list
 
         logger.info(f'Processing {len(dataset_list)} samples, if data is large, it may take a while.')
-
+        # todo 推理核心方法
         def worker(sample: Sample) -> TaskState:
             return self._predict_sample(sample, model_prediction_dir)
 
@@ -196,10 +199,10 @@ class DefaultEvaluator(Evaluator):
                 return
             # todo 如果不忽略错误，则直接抛出异常，让任务失败！！！！！！
             raise exc
-
+        # todo 多线程推理核心类！！！！！！
         finished_task_states = run_in_threads_with_progress(
             dataset_list,
-            worker,
+            worker, # todo worker
             desc=f'Predicting[{self.benchmark_name}@{subset}]: ',
             max_workers=self.task_config.eval_batch_size,
             log_interval=HEARTBEAT_INTERVAL_SEC,

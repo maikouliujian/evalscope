@@ -225,6 +225,7 @@ class EvalThink:
             results = thread_map(
                 self.process_item,
                 (item for _, item in review_df.iterrows()),
+                # todo
                 desc=f'Evaluating {subset}',
                 total=len(review_df),
                 max_workers=workers

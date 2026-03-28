@@ -271,8 +271,8 @@ class Model:
             input = [ChatMessageUser(content=input)]
 
         # handle tools and tool_choice
-        # todo tool_choice = tool_choice if tool_choice is not None else 'auto'
-        tool_choice = tool_choice if tool_choice is not None else 'required'
+        tool_choice = tool_choice if tool_choice is not None else 'auto'
+        # tool_choice = tool_choice if tool_choice is not None else 'required'
         tools_info = list(tools) if tools is not None else []
 
         if isinstance(tool_choice, ToolFunction):
