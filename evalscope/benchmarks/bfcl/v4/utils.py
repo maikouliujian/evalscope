@@ -392,6 +392,7 @@ def compute_aggregate_subsets(report: Report) -> None:
         subset_dict['agentic'] = agentic
 
         # Step 4: overall (percentage weighted average)
+        # todo  overall计算逻辑！！！！！！
         overall_subsets = ['agentic', 'multi_turn', 'non_live', 'live', 'hallucination']
         overall = percentage_weighted_average_from_subsets(overall_subsets, subset_dict, weights=[40, 30, 10, 10, 10])
         subset_dict['overall'] = overall

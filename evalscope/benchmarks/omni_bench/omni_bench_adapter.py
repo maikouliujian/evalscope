@@ -21,6 +21,7 @@ Answer the following multiple choice question based on the image and audio conte
 """.strip()  # noqa: E501
 
 
+
 @register_benchmark(
     BenchmarkMeta(
         name='omni_bench',

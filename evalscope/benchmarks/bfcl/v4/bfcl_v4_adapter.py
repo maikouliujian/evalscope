@@ -30,7 +30,7 @@ from .utils import (
 
 logger = get_logger()
 
-
+# todo
 @register_benchmark(
     BenchmarkMeta(
         name='bfcl_v4',
@@ -83,6 +83,7 @@ class BFCLV4Adapter(AgentAdapter):
         self.underscore_to_dot = self.extra_params.get('underscore_to_dot', True)
         self.is_fc_model = self.extra_params.get('is_fc_model', True)
         # Set SERPAPI_API_KEY in environment variables if provided
+        # todo 设置搜索key！！！！！！
         serpapi_api_key = self.extra_params.get('SERPAPI_API_KEY', None)
         if serpapi_api_key:
             os.environ['SERPAPI_API_KEY'] = serpapi_api_key
@@ -230,7 +231,7 @@ class BFCLV4Adapter(AgentAdapter):
             'error_type': str(entry_result.get('error_type')),
         }
         return score
-
+    # todo 生成report！！！！！！
     def _on_generate_report_end(self, report: Report, output_dir, **kwargs):
         """
         Finalize the report generation process. Calculate the overall score.

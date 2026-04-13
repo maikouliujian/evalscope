@@ -144,10 +144,12 @@ class DefaultEvaluator(Evaluator):
 
         # Calculate evaluation metrics for each prediction
         logger.info(f'Getting reviews for subset: {subset}')
+        # todo 打分
         sample_scores = self.get_reviews(subset, task_states)
 
         # Aggregate individual sample scores into subset-level metrics
         logger.info(f'Aggregating scores for subset: {subset}')
+        # todo 聚合指标
         agg_scores = self.benchmark.aggregate_scores(sample_scores=sample_scores)
         return agg_scores
 

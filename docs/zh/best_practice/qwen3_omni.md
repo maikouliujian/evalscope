@@ -97,7 +97,7 @@ task_cfg = TaskConfig(
         'omni_bench': {
             'extra_params': {
                 'use_image': True, # 是否使用图像输入，如果为False，则使用文本替代图像内容。
-                'use_audio': False, # 是否使用音频输入，如果为False，则使用文本替代音频内容。
+                'use_audio': False, # 是否使用音频输入，如果为False，则使用文本替代音频内容。# todo 打开会报错
                 }
             }
     },

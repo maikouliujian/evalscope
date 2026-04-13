@@ -72,6 +72,7 @@ def add_argument(parser: argparse.ArgumentParser):
     parser.add_argument('--repeats', type=int, default=1, help='Number of times to repeat the dataset items for k-metrics.')  # noqa: E501
 
     # Cache and working directory arguments
+    # todo 复用已经推理的结果！！！！！！
     parser.add_argument('--use-cache', type=str, help='Path to reuse the cached results.')
     parser.add_argument('--rerun-review', action='store_true', default=False, help='Rerun the review process when use_cache.')
     parser.add_argument('--work-dir', type=str, help='The root cache dir.')
