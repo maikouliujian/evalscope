@@ -30,7 +30,7 @@ class BenchmarkMeta:
 
     default_subset: str = 'default'
     """ Default subset to use for the benchmark."""
-
+    # todo 开启few_shot_num
     few_shot_num: int = 0
     """ Number of few-shot examples to use."""
 

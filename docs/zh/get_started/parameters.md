@@ -128,6 +128,7 @@
 }'
 ```
 
+
 ## 评测参数
 
 | 参数 | 类型 | 说明 | 默认值 |
@@ -221,6 +222,7 @@ After providing your explanation, you must rate the response on a scale of 0 (wo
 | `--work-dir` | `str` | 评测输出路径（详见下方目录结构） | `./outputs` |
 | `--no-timestamp` | `bool` | 是否不在工作目录中添加时间戳 | `false` |
 
+# todo！！！！！！！！！
 | `--use-cache` | `str` | 复用本地缓存路径（如`outputs/20241210_194434`）<br>重用推理结果和评测结果 | `None` |
 
 | `--rerun-review` | `bool` | 只重新运行评测（重用推理结果） | `false` |

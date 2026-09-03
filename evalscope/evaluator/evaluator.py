@@ -171,6 +171,7 @@ class DefaultEvaluator(Evaluator):
         """
         # Initialize task state list and filter cached predictions if caching is enabled
         if self.use_cache:
+            # todo
             cached_task_state_list, dataset = self.cache_manager.filter_prediction_cache(subset, dataset)
         else:
             cached_task_state_list = []

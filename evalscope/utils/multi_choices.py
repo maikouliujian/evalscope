@@ -42,6 +42,7 @@ Answer the following multiple choice question where multiple answers may be corr
 {choices}
 """.strip()
 
+
 CHINESE_FEW_SHOT_TEMPLATE = r"""以下是一些示例问题：
 
 {fewshot}
@@ -111,7 +112,7 @@ def format_letter_choices(choices: Union[Choices, List[str]]) -> str:
 
     return ','.join([f'{answer_character(i)}' for i in indexes])
 
-
+# todo 组装提示词
 def prompt(question: str, choices: Union[Choices, List[str]], template: str, fewshot: Optional[str] = None) -> str:
     if isinstance(choices, list):
         choices = Choices(choices)

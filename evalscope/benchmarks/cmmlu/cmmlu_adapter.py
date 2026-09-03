@@ -81,6 +81,9 @@ SUBJECT_MAPPING = {
     'world_religions': ['global', 'Humanities']
 }
 
+SUBJECT_MAPPING = {
+    'logical': ['philosophy', 'Humanities'],
+}
 
 @register_benchmark(
     BenchmarkMeta(
@@ -92,8 +95,8 @@ SUBJECT_MAPPING = {
         dataset_id='evalscope/cmmlu',
         metric_list=['acc'],
         subset_list=list(SUBJECT_MAPPING.keys()),
-        few_shot_num=0,
-        train_split=None,
+        few_shot_num=5,
+        train_split='test',
         eval_split='test',
         prompt_template=MultipleChoiceTemplate.CHINESE_SINGLE_ANSWER_TEMPLATE_COT,
     )

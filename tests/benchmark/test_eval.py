@@ -114,7 +114,8 @@ class TestNativeBenchmark(TestBenchmark):
         """Test C-MMLU reasoning dataset."""
         dataset_args = {
             'subset_list': ['agronomy', 'computer_security'],
-            'few_shot_num': 0,
+            'few_shot_num': 5,
+            "dataset_id":"/Users/lj/.cache/modelscope/hub/datasets/cmmlu"
         }
         # self._run_dataset_load_test('cmmlu')
         self._run_dataset_test('cmmlu', dataset_args=dataset_args)

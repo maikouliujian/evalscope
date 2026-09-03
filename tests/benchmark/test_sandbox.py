@@ -53,6 +53,7 @@ class TestCodeBenchmark(TestBenchmark):
         sandbox_manager_config = {'base_url': 'http://localhost:8000'}
         self._run_dataset_test('humaneval', limit=5, sandbox_manager_config=sandbox_manager_config)
 
+
     def test_live_code_bench(self):
         """Test Live Code Bench dataset."""
         dataset_args = {
@@ -64,6 +65,8 @@ class TestCodeBenchmark(TestBenchmark):
             },
         }
         self._run_dataset_test('live_code_bench', limit=5, dataset_args=dataset_args, use_cache='outputs/20250918_200232', rerun_review=True)
+
+
 
     def test_live_code_bench_remote_sandbox(self):
         """Test Live Code Bench dataset."""

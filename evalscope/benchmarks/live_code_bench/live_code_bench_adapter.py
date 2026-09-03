@@ -100,7 +100,7 @@ class LiveCodeBenchAdapter(DefaultDataAdapter):
         """Extract code from the prediction."""
         from .extract_utils import extract_code_generation
         return extract_code_generation(prediction)
-
+    # todo eval
     def match_score(
         self, original_prediction: str, filtered_prediction: str, reference: str, task_state: TaskState
     ) -> Score:

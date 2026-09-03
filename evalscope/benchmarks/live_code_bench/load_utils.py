@@ -46,7 +46,7 @@ def transform(item):
 
     return item
 
-
+# todo 前闭 后闭
 def filter_date(contest_date, start_date=None, end_date=None) -> bool:
 
     contest_date = datetime.fromisoformat(contest_date)
